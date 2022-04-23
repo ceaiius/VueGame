@@ -9,10 +9,11 @@
       <h2>{{monsterHealth}}</h2>
     </div>
     <div class="btnDiv">
-      <button @click="attackMethod" class="style-1">ATTACK</button>
-      <button @click="specialAttackMethod" class="style-2">SPECIAL ATTACK</button>
-      <button @click="healMethod" class="style-3">HEAL</button>
-      <button @click="giveUpMethod"  class="style-4">GIVE UP</button>
+      <HomeButton @btn-click="attackMethod" title="ATTACK" color="style-1"/>
+      <HomeButton @btn-click="specialAttackMethod" title = "SPECIAL ATTACK" color="style-2"/>
+      <HomeButton @btn-click="healMethod" title="HEAL" color="style-3"/>
+      <HomeButton @btn-click="giveUpMethod" title="GIVE UP" color="style-4"/>
+     
     </div>
 
     <div v-if="lostEnabled" id="loserDiv">
@@ -27,6 +28,7 @@
 
 <script>
 
+import HomeButton from "./components/HomeButton.vue"
 
 export default {
   name: 'App',
@@ -37,6 +39,9 @@ export default {
       lostEnabled:false,
       wonEnabled: false
     }
+  },
+  components:{
+    HomeButton
   },
   methods: {
     attackMethod(){
@@ -127,32 +132,6 @@ h2{
   font-family: 'Cinzel', serif;
 }
 
-.btnDiv{
-  display: flex;
-  justify-content: center;
-  padding-top: 4%;
-  gap: 3%;
-} 
-
-button {
-    font-size: 20px;
-    background-color: #FF6FB5;
-    padding: 12px;
-    box-shadow: 0 1px 1px black;
-    margin: 10px;
-    font-family: 'Cinzel', serif;
-}
-.style-2{
-    background-color: #C74B50;
-}
-
-.style-3{
-  background-color: #55D8C1;
-}
-
-.style-4{
-  background-color: #D49B54
-}
 
 #loserDiv{
   display: flex;
